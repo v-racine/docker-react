@@ -22,7 +22,7 @@ jobs:
         run: sed -i "s|TAG_PLACEHOLDER|${{ github.ref_name }}|" Dockerrun.aws.json
 
       - name: Generate deployment package
-        run: zip -r deploy.zip . -x '*.git*'
+        run: zip -r deploy.zip . -x '*.git*' -x 'Dockerfile' -x 'Dockerfile.dev'
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v22
