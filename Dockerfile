@@ -1,5 +1,5 @@
 #build phase
-FROM node:16-alpine as builder
+FROM node:16-alpine AS builder
 
 WORKDIR '/app'
 
@@ -17,6 +17,3 @@ FROM nginx
 EXPOSE 80
 
 COPY --from=builder /app/build /usr/share/nginx/html
-
-
-
